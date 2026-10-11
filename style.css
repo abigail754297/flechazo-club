@@ -1,0 +1,127 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #0d0d0d;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    background: radial-gradient(circle, rgba(30,5,10,1) 0%, rgba(10,10,10,1) 100%);
+    border: 2px solid #d4af37;
+    border-radius: 20px;
+    padding: 40px 30px;
+    text-align: center;
+    max-width: 450px;
+    width: 100%;
+    box-shadow: 0 0 30px rgba(220, 20, 60, 0.4), 0 0 15px rgba(212, 175, 55, 0.3);
+}
+
+.logo-img {
+    width: 220px;
+    height: 220px;
+    object-fit: contain;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 0 10px rgba(255, 0, 50, 0.5));
+}
+
+h1 {
+    font-size: 2.2rem;
+    color: #ffffff;
+    margin-bottom: 5px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+h1 span {
+    color: #e60039;
+}
+
+.subtitle {
+    color: #d4af37;
+    font-size: 1rem;
+    letter-spacing: 3px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.slogan {
+    font-size: 0.95rem;
+    color: #cccccc;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.slogan span {
+    color: #e60039;
+}
+
+.btn-whatsapp {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    background: linear-gradient(45deg, #25d366, #128c7e);
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: bold;
+    padding: 15px 30px;
+    border-radius: 50px;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+}
+
+.btn-whatsapp:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+}
+
+.btn-whatsapp svg {
+    width: 24px;
+    height: 24px;
+    fill: #ffffff;
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 15px;
+    }
+
+    .container {
+        padding: 30px 20px;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    .subtitle {
+        letter-spacing: 2px;
+    }
+
+    .slogan {
+        font-size: 0.8rem;
+    }
+
+    .btn-whatsapp {
+        font-size: 0.95rem;
+        padding: 14px 20px;
+    }
+}

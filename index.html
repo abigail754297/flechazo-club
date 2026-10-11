@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FLECHAZO - Club de Solteros</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: {
+                            DEFAULT: '#D4AF37',
+                            light: '#F3E5AB',
+                            dark: '#AA771C'
+                        },
+                        crimson: {
+                            DEFAULT: '#E60039',
+                            dark: '#8B0000',
+                            glow: '#FF1A53'
+                        }
+                    },
+                    animation: {
+                        'pulse-slow': 'pulseHeart 2.5s ease-in-out infinite',
+                        'float': 'floatParticle 6s ease-in-out infinite',
+                        'glow': 'glowRing 3s ease-in-out infinite alternate',
+                    },
+                    keyframes: {
+                        pulseHeart: {
+                            '0%, 100%': { transform: 'scale(1)', filter: 'drop-shadow(0 0 15px rgba(230, 0, 57, 0.6))' },
+                            '50%': { transform: 'scale(1.05)', filter: 'drop-shadow(0 0 30px rgba(255, 26, 83, 0.95))' }
+                        },
+                        floatParticle: {
+                            '0%': { transform: 'translateY(0px) rotate(0deg)', opacity: '0.2' },
+                            '50%': { transform: 'translateY(-25px) rotate(10deg)', opacity: '0.8' },
+                            '100%': { transform: 'translateY(0px) rotate(0deg)', opacity: '0.2' }
+                        },
+                        glowRing: {
+                            '0%': { boxShadow: '0 0 20px rgba(212, 175, 55, 0.3), inset 0 0 15px rgba(230, 0, 57, 0.3)' },
+                            '100%': { boxShadow: '0 0 45px rgba(212, 175, 55, 0.7), inset 0 0 30px rgba(230, 0, 57, 0.6)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #080305;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        .font-cinzel {
+            font-family: 'Cinzel', serif;
+        }
+
+        .text-gradient-gold {
+            background: linear-gradient(135deg, #FFF1B0 0%, #D4AF37 50%, #996515 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .text-gradient-red {
+            background: linear-gradient(135deg, #FF4D79 0%, #E60039 60%, #990026 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .gold-border-card {
+            background: radial-gradient(circle at center, rgba(35, 5, 12, 0.95) 0%, rgba(10, 3, 6, 0.98) 100%);
+            border: 2px solid #D4AF37;
+        }
+
+        .bg-particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-4 sm:p-6 md:p-10 relative">
+
+    <div class="bg-particles">
+        <div class="absolute top-[10%] left-[12%] text-crimson opacity-20 text-3xl animate-float" style="animation-delay: 0s;">♥</div>
+        <div class="absolute top-[20%] right-[15%] text-gold opacity-30 text-2xl animate-float" style="animation-delay: 1.5s;">♥</div>
+        <div class="absolute bottom-[25%] left-[18%] text-gold opacity-25 text-4xl animate-float" style="animation-delay: 3s;">♥</div>
+        <div class="absolute bottom-[15%] right-[20%] text-crimson opacity-20 text-3xl animate-float" style="animation-delay: 4.5s;">♥</div>
+        <div class="absolute top-[50%] left-[5%] text-crimson opacity-15 text-5xl animate-float" style="animation-delay: 2s;">♥</div>
+        <div class="absolute top-[60%] right-[8%] text-gold opacity-20 text-3xl animate-float" style="animation-delay: 3.5s;">♥</div>
+    </div>
+
+    <main class="relative z-10 w-full max-w-lg gold-border-card rounded-3xl p-6 sm:p-10 text-center animate-glow shadow-2xl backdrop-blur-md transition-all duration-500 my-auto">
+        
+        <!-- Logo Emblem Section -->
+        <div class="relative mx-auto w-64 h-64 sm:w-80 sm:h-80 mb-6 flex items-center justify-center">
+            
+            <svg class="w-full h-full animate-pulse-slow cursor-pointer select-none" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg" onclick="toggleAudio()">
+                <defs>
+                    <linearGradient id="goldLinear" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#FFE885"/>
+                        <stop offset="30%" stop-color="#D4AF37"/>
+                        <stop offset="70%" stop-color="#AA771C"/>
+                        <stop offset="100%" stop-color="#613E02"/>
+                    </linearGradient>
+                    <linearGradient id="redLinear" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#FF3366"/>
+                        <stop offset="40%" stop-color="#E60039"/>
+                        <stop offset="100%" stop-color="#7A001E"/>
+                    </linearGradient>
+                    <linearGradient id="arrowGold" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#FFF5C2"/>
+                        <stop offset="50%" stop-color="#E5C158"/>
+                        <stop offset="100%" stop-color="#A37418"/>
+                    </linearGradient>
+                    <filter id="glowEffect" x="-20%" y="-20%" width="140%" height="140%">
+                        <feGaussianBlur stdDeviation="8" result="blur" />
+                        <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                    </filter>
+                </defs>
+
+                <!-- Outer Circular Ring -->
+                <circle cx="250" cy="250" r="235" stroke="url(#goldLinear)" stroke-width="6" fill="#0C0205" />
+                <circle cx="250" cy="250" r="226" stroke="url(#redLinear)" stroke-width="4" fill="none" opacity="0.8" />
+                <circle cx="250" cy="250" r="218" stroke="url(#goldLinear)" stroke-width="2" fill="none" opacity="0.6" />
+
+                <!-- Heart Shapes -->
+                <g filter="url(#glowEffect)">
+                    <path d="M 250,170 C 210,90 110,100 110,180 C 110,250 200,320 250,350 C 220,300 150,240 150,180 C 150,130 210,130 250,170 Z" fill="url(#redLinear)" />
+                    <path d="M 250,170 C 290,90 390,100 390,180 C 390,240 330,295 270,335 C 310,290 350,240 350,180 C 350,130 290,130 250,170 Z" fill="url(#goldLinear)" />
+                </g>
+
+                <!-- Arrow Through Heart -->
+                <g>
+                    <line x1="120" y1="310" x2="380" y2="150" stroke="url(#arrowGold)" stroke-width="8" stroke-linecap="round"/>
+                    <polygon points="100,322 135,300 125,325" fill="url(#arrowGold)"/>
+                    <path d="M 370,156 L 400,135 L 390,150 L 410,130 L 382,162 Z" fill="url(#redLinear)"/>
+                </g>
+
+                <!-- Floating Accent Hearts -->
+                <path d="M 100,220 Q 90,205 100,195 Q 110,205 100,220 Z" fill="url(#redLinear)" opacity="0.9" />
+                <path d="M 380,240 Q 370,225 380,215 Q 390,225 380,240 Z" fill="url(#redLinear)" opacity="0.9" />
+                <path d="M 350,280 Q 343,270 350,263 Q 357,270 350,280 Z" fill="url(#redLinear)" opacity="0.8" />
+
+                <!-- Text Branding inside Logo -->
+                <text x="250" y="380" text-anchor="middle" fill="#FFFFFF" font-family="'Cinzel', serif" font-weight="900" font-size="46" letter-spacing="3">FLECHAZO</text>
+                <line x1="130" y1="398" x2="370" y2="398" stroke="url(#goldLinear)" stroke-width="2"/>
+                <text x="250" y="415" text-anchor="middle" fill="url(#goldLinear)" font-family="'Montserrat', sans-serif" font-weight="700" font-size="16" letter-spacing="4">CLUB DE SOLTEROS</text>
+            </svg>
+        </div>
+
+        <h1 class="font-cinzel text-3xl sm:text-4xl font-extrabold tracking-wider mb-1 uppercase">
+            FLECHA<span class="text-crimson text-gradient-red">ZO</span>
+        </h1>
+        
+        <p class="text-gold font-semibold text-xs sm:text-sm tracking-[0.25em] uppercase mb-4">
+            Club de Solteros
+        </p>
+
+        <div class="flex items-center justify-center gap-2 text-xs sm:text-sm text-gray-300 font-medium tracking-widest uppercase mb-8">
+            <span>CONOCE</span>
+            <span class="text-crimson animate-pulse">♥</span>
+            <span>CONECTA</span>
+            <span class="text-crimson animate-pulse">♥</span>
+            <span>ENCUENTRA TU PAREJA</span>
+        </div>
+
+        <!-- Audio Control Status Bar -->
+        <div class="mb-8 p-3 rounded-2xl bg-black/40 border border-gold/20 flex items-center justify-between text-xs text-gray-300">
+            <div class="flex items-center gap-2.5">
+                <span id="audio-icon" class="text-gold text-base">🎵</span>
+                <span id="audio-status-text" class="font-medium text-gray-300">Cargando música romántica...</span>
+            </div>
+            <button id="audio-toggle-btn" onclick="toggleAudio()" class="px-3 py-1.5 rounded-xl bg-gold/10 hover:bg-gold/20 border border-gold/40 text-gold font-semibold transition-all duration-300 flex items-center gap-1.5 active:scale-95">
+                <span id="btn-icon">▶</span>
+                <span id="btn-text">Reproducir</span>
+            </button>
+        </div>
+
+        <!-- Direct WhatsApp CTA Button -->
+        <a href="https://wa.me/51929899044?text=¡Hola!%20Quiero%20unirme%20a%20FLECHAZO%20Club%20de%20Solteros" 
+           target="_blank" 
+           rel="noopener noreferrer"
+           class="group relative inline-flex items-center justify-center gap-3 w-full bg-gradient-to-r from-emerald-500 via-green-500 to-teal-600 hover:from-emerald-400 hover:to-teal-500 text-white font-extrabold text-base sm:text-lg py-4 px-6 rounded-full shadow-[0_0_25px_rgba(16,185,129,0.4)] hover:shadow-[0_0_35px_rgba(16,185,129,0.7)] transform hover:-translate-y-1 transition-all duration-300 active:scale-95">
+            
+            <svg class="w-7 h-7 fill-current transition-transform duration-300 group-hover:scale-110" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3 18.6-68.1-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
+            </svg>
+            
+            <span>UNIRME POR WHATSAPP</span>
+        </a>
+
+        <p class="mt-6 text-[11px] text-gray-400 font-light">
+            © FLECHAZO Club de Solteros. Todos los derechos reservados.
+        </p>
+    </main>
+
+    <div class="hidden" aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden; opacity: 0; pointer-events: none;">
+        <div id="youtube-audio-player"></div>
+    </div>
+
+    <script>
+        var player;
+        var isPlaying = false;
+
+        // Load YouTube IFrame API dynamically
+        var tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('youtube-audio-player', {
+                height: '1',
+                width: '1',
+                videoId: 'fceUn6ZXLek', // Background song ID
+                playerVars: {
+                    'autoplay': 0,
+                    'controls': 0,
+                    'loop': 1,
+                    'playlist': 'fceUn6ZXLek',
+                    'playsinline': 1
+                },
+                events: {
+                    'onReady': onPlayerReady,
+                    'onStateChange': onPlayerStateChange
+                }
+            });
+        }
+
+        function onPlayerReady(event) {
+            document.getElementById('audio-status-text').innerText = 'Toca cualquier lugar para activar la música';
+            
+            // Automatic playback trigger on user interaction (bypasses browser autoplay restrictions)
+            const handleFirstInteraction = () => {
+                if (!isPlaying && player && typeof player.playVideo === 'function') {
+                    player.playVideo();
+                }
+                document.removeEventListener('click', handleFirstInteraction);
+                document.removeEventListener('touchstart', handleFirstInteraction);
+            };
+
+            document.addEventListener('click', handleFirstInteraction);
+            document.addEventListener('touchstart', handleFirstInteraction);
+        }
+
+        function onPlayerStateChange(event) {
+            var statusText = document.getElementById('audio-status-text');
+            var btnIcon = document.getElementById('btn-icon');
+            var btnText = document.getElementById('btn-text');
+            var audioIcon = document.getElementById('audio-icon');
+
+            if (event.data === YT.PlayerState.PLAYING) {
+                isPlaying = true;
+                statusText.innerText = 'Sonando música romántica';
+                btnIcon.innerText = '❚❚';
+                btnText.innerText = 'Pausar';
+                audioIcon.classList.add('animate-bounce');
+            } else {
+                isPlaying = false;
+                statusText.innerText = 'Música pausada';
+                btnIcon.innerText = '▶';
+                btnText.innerText = 'Reproducir';
+                audioIcon.classList.remove('animate-bounce');
+            }
+        }
+
+        function toggleAudio() {
+            if (!player || typeof player.playVideo !== 'function') return;
+
+            if (isPlaying) {
+                player.pauseVideo();
+            } else {
+                player.playVideo();
+            }
+        }
+    </script>
+</body>
+</html>
